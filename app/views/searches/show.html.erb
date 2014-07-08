@@ -1,1 +1,7 @@
+Player searched for:
 <%= @player.name %>
+<%= @player.position %>
+<% @player.statistics.each do |statistic| %>
+  <%= statistic.rushing %>
+<% end %>
+

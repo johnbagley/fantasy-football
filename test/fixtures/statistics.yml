@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player_id: 
+  rushing: MyString
+  receving: MyString
+  passing: MyString
+
+two:
+  player_id: 
+  rushing: MyString
+  receving: MyString
+  passing: MyString

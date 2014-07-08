@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'welcomes#show'
   resources :dashboards, only: [:show]
   resources :teams, only: [:new, :create, :show] do
-    resources :players, only: [:index, :new, :create]
+    resources :players, only: [:index, :new, :create] do
+      resources :statistics, only: [:show]
+    end
   end
   resource :search, only: [:show]
     # The priority is based upon order of creation: first created -> highest priority.
