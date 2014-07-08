@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 20140708165235) do
 
   create_table "statistics", force: true do |t|
     t.integer  "player_id"
-    t.string   "rushing"
-    t.string   "receving"
-    t.string   "passing"
+    t.integer  "rushing"
+    t.integer  "receving"
+    t.integer  "passing"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
