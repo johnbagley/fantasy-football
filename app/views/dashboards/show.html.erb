@@ -1,0 +1,11 @@
+<h3><%= @current_user.email %>'s Team</h3>
+
+<%= form_for(@player_search) do |form| %>
+  <%= form.label :name, "Player Name" %>
+  <%= form.text_field :name %>
+  <%= form.submit "Search" %>
+<% end %>
+
+<% @players.each do |player| %>
+  <%= player.name %>
+<% end %>

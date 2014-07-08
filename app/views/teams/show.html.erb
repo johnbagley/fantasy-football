@@ -1,0 +1,24 @@
+<h3><%= @team.name %></h3>
+
+<%= form_for([@team, @player]) do |form| %>
+  <%= form.label :name, "Player to Add" %>
+  <%= form.text_field :name %>
+  <%= form.submit "Add Player" %>
+<% end %>
+
+Players should be listed below:
+<% @players.each do |player| %>
+  <ul>
+    <li>
+      <%= player.name %>
+      <%= player.position %>
+    </li>
+  </ul>
+<% end %>
+
+
+Search form below:
+<%= form_for(:search, url: search_path, method: :get) do |form| %>
+    <%= form.text_field :query, placeholder: "Search for a Player" %>
+  <%= form.submit "Search" %>
+<% end %>
