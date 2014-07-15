@@ -13,6 +13,7 @@ class TeamsController < ApplicationController
     @team = current_user.teams.find(params[:id])
     @players = @team.players
     @player = Player.new
+    @statistics = Statistic.all
   end
 
   private

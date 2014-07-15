@@ -1,9 +1,21 @@
 <h3><%= @team.name %></h3>
 
+
+<%= form_tag import_statistics_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
 <%= form_for([@team, @player]) do |form| %>
   <%= form.label :name, "Player to Add" %>
   <%= form.text_field :name %>
   <%= form.submit "Add Player" %>
+<% end %>
+
+Search form below:
+<%= form_for(:search, url: search_path, method: :get) do |form| %>
+    <%= form.text_field :query, placeholder: "Search for a Player" %>
+  <%= form.submit "Search" %>
 <% end %>
 
 Players should be listed below:
@@ -17,8 +29,27 @@ Players should be listed below:
 <% end %>
 
 
-Search form below:
-<%= form_for(:search, url: search_path, method: :get) do |form| %>
-    <%= form.text_field :query, placeholder: "Search for a Player" %>
-  <%= form.submit "Search" %>
+Player projections should be listed below:
+<div class='statistics'>
+<% @statistics.each do |statistic| %>
+  <ul>
+    <li>
+      <%= statistic.name %>
+      <%= statistic.completions %>
+      <%= statistic.interceptions %>
+      <%= statistic.passing_yards %>
+      <%= statistic.passing_tds %>
+      <%= statistic.rushes %>
+      <%= statistic.rushing_yards %>
+      <%= statistic.rushing_tds %>
+      <%= statistic.receptions %>
+      <%= statistic.receiving_yards %>
+      <%= statistic.receiving_tds %>
+      <%= statistic.points %>
+      <%= link_to 'Select Player', team_players_path(@team), method: :post %>
+    </li>
+  </ul>
 <% end %>
+</div>
+
+

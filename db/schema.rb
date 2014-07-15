@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140708165235) do
+ActiveRecord::Schema.define(version: 20140715194851) do
 
   create_table "players", force: true do |t|
     t.integer  "user_id"
@@ -26,11 +26,21 @@ ActiveRecord::Schema.define(version: 20140708165235) do
 
   create_table "statistics", force: true do |t|
     t.integer  "player_id"
-    t.integer  "rushing"
-    t.integer  "receving"
-    t.integer  "passing"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "interceptions"
+    t.integer  "rank"
+    t.string   "name"
+    t.integer  "completions",     default: 0
+    t.integer  "passing_yards",   default: 0
+    t.integer  "passing_tds",     default: 0
+    t.integer  "rushes",          default: 0
+    t.integer  "rushing_yards",   default: 0
+    t.integer  "rushing_tds",     default: 0
+    t.integer  "receptions",      default: 0
+    t.integer  "receiving_yards", default: 0
+    t.integer  "receiving_tds",   default: 0
+    t.integer  "points",          default: 0
   end
 
   add_index "statistics", ["player_id"], name: "index_statistics_on_player_id"
